@@ -102,17 +102,16 @@ const App = () => {
 
   return (
     <div className="container mx-auto">
-      <header className="bg-gray-200 pl-2 h-32 border-blue-400 border-b-2">
+      <header className="bg-gray-200 pl-4 h-32 border-blue-400 border-b-2">
         <img alt='tmdb logo' src='tmdb_logo.png' />
-
       </header>
-      <div className="min-h-screen bg-gray-100">
-        Main
 
       <div className="flex flex-wrap">
-          <div className="bg-gray-200 px-4 w-full lg:w-1/6">
-            Filter
-            <div>
+        <div className="bg-gray-200 w-full lg:w-1/6">
+          <div className="border border-gray-800">
+            <div className="bg-gray-600 px-6 pb-1 text-white">Filter by Genre</div>
+
+            <div className="px-2 pt-2">
               {genres && genres.map((g) => <div
                 data-id={g.id}
                 className={getGenreClass(g.id)}
@@ -120,17 +119,20 @@ const App = () => {
               >{g.name}</div>)
               }
             </div>
-            <div className="my-2 p-2 content-center">
+            <div className="border-0 border-t border-white w-full my-2 p-2">
               <button
                 onClick={resetFilter}
-                className="bg-red-500 hover:bg-red-700 text-white text-sm py-1 px-4 rounded shadow">
+                className="ml-10 mt-1 bg-red-500 hover:bg-red-700 text-white text-sm py-1 px-4 rounded shadow">
                 Reset
               </button>
             </div>
           </div>
+        </div>
 
-          <div className="px-4 w-full lg:w-5/6">
-            <div className="grid grid-cols-3 gap-4">
+        <div className="w-full lg:w-5/6">
+          <div className="min-h-screen border-0 border-r pt-2">
+            <span className="ml-4 text-2xl">Movies Playing Now..</span>
+            <div className="grid grid-cols-3 gap-4 mr-4">
               {
                 movies.length ? movies.map((d) =>
                   <Movie
@@ -140,7 +142,9 @@ const App = () => {
                   />
                 )
                   :
-                  <span className="text-red-400">No Movies matched the Filter</span>
+                  <div className="m-10 w-64 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                    <span className="block sm:inline">No Movies matched the Filter</span>
+                  </div>
               }
             </div>
           </div>
