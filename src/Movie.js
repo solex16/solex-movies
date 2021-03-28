@@ -4,7 +4,6 @@ import { bgColours } from './bgColours';
 
 const BASE_URL = `https://image.tmdb.org/t/p/w200/`
 
-
 const getYear = (d) => {
   const dates = d.split('-')
   return months[parseInt(dates[1])] + ' ' + dates[0]
@@ -42,7 +41,6 @@ const Movie = ({ d, randomInt }) => {
         <div className="h-34 w-64 grid grid-cols-8 grid-rows-5 bg-gray-100">
           <div className="col-span-3 row-span-5 m-auto">
             <img
-              // className="h-12 w-12 rounded-full"
               src={BASE_URL + d.poster_path}
               alt=""
             />
@@ -58,7 +56,6 @@ const Movie = ({ d, randomInt }) => {
               {d.vote_average}
             </span>
           </div>
-
         </div>
       </div>
     </div>
