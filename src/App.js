@@ -72,6 +72,11 @@ const App = () => {
 
   }, [filterIds, data])
 
+  const resetFilter = () => {
+    setFilterIds([])
+    setMovies(data)
+  }
+
   const getGenreClass = (id) => {
     const bg = filterIds.includes(id) ? 'bg-blue-200' : 'bg-white'
     return "inline-flex cursor-pointer text-xs p-1 m-1 border border-blue-400 rounded-2xl " + bg;
@@ -113,6 +118,16 @@ const App = () => {
               >{g.name}</div>)
               }
             </div>
+            <div className="my-2 p-2 content-center">
+              <button
+                onClick={resetFilter}
+                className="bg-red-500 hover:bg-red-700 text-white text-sm py-1 px-4 rounded shadow">
+                Reset
+              </button>
+            </div>
+
+
+
           </div>
 
           <div className="px-4 w-full lg:w-5/6">
