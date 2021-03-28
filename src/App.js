@@ -14,6 +14,8 @@ const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max))
 }
 
+
+
 function compare(a, b) {
   if (a.popularity > b.popularity) {
     return -1;
@@ -70,6 +72,12 @@ const App = () => {
 
   }, [filterIds, data])
 
+  const getGenreClass = (id) => {
+    const activeGenreClass = "inline-flex cursor-pointer text-xs p-1 m-1 bg-blue-200 border border-blue-400 rounded-2xl"
+    const genreClass = "inline-flex cursor-pointer text-xs p-1 m-1 bg-white border border-blue-400 rounded-2xl"
+    return filterIds.includes(id) ? activeGenreClass : genreClass
+  }
+
   const setFilter = (e) => {
     const id = parseInt(e.currentTarget.dataset.id)
     if (!id) {
@@ -101,7 +109,7 @@ const App = () => {
             <div>
               {genres && genres.map((g) => <div
                 data-id={g.id}
-                className="inline-flex text-xs p-1 m-1 bg-white border border-blue-400 rounded-2xl"
+                className={getGenreClass(g.id)}
                 onClick={setFilter}
               >{g.name}</div>)
               }
