@@ -67,12 +67,17 @@ const App = () => {
           return isSubsetArr(r.genre_ids, filterIds)
         }))
       }
+
+      if (rating) {
+        m = m.filter(r => r.vote_average >= rating)
+      }
+
       m.sort(compare)
       setMovies(m)
     }
     filterMovies()
 
-  }, [filterIds, data])
+  }, [filterIds, data, rating])
 
   const resetFilter = () => {
     setFilterIds([])
