@@ -14,8 +14,6 @@ const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max))
 }
 
-
-
 function compare(a, b) {
   if (a.popularity > b.popularity) {
     return -1;
@@ -36,6 +34,7 @@ const App = () => {
   const [query, setQuery] = useState(getQuery);
   const [movies, setMovies] = useState([]);
   const [data, setData] = useState([]);
+  const [rating, setRating] = useState(0);
   const [filterIds, setFilterIds] = useState([]);
 
   useEffect(() => {
@@ -84,6 +83,12 @@ const App = () => {
     return "inline-flex cursor-pointer text-xs p-1 m-1 border border-blue-400 rounded-2xl " + bg;
   }
 
+  const updateSlider = (e) => {
+
+    setRating(e.currentTarget.value)
+
+  }
+
   const setFilter = (e) => {
     const id = parseInt(e.currentTarget.dataset.id)
     if (!id) {
@@ -109,8 +114,8 @@ const App = () => {
       <div className="flex flex-wrap">
         <div className="bg-gray-200 w-full lg:w-1/6">
           <div className="border border-gray-800">
-            <div className="bg-gray-600 px-6 pb-1 text-white">Filter by Genre</div>
 
+            <div className="bg-gray-600 px-6 pb-1 text-white">Filter by Genre</div>
             <div className="px-2 pt-2">
               {genres && genres.map((g) => <div
                 data-id={g.id}
@@ -126,6 +131,15 @@ const App = () => {
                 Reset
               </button>
             </div>
+
+            <div className="bg-gray-600 px-6 pb-1 text-white">Filter by Rating</div>
+            <div className="px-1 my-4">
+              <label className="text-sm" for="fader">Minimum Rating:</label>
+              <input type="range" min="0" max="10" value={rating} id="fader"
+                step="1" onChange={updateSlider} />
+              <output className="mx-1" for="fader">{rating}</output>
+            </div>
+
           </div>
         </div>
 
