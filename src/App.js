@@ -118,13 +118,15 @@ const App = () => {
           <div className="px-4 w-full lg:w-5/6">
             <div className="grid grid-cols-3 gap-4">
               {
-                movies && movies.map((d) =>
+                movies.length ? movies.map((d) =>
                   <Movie
                     key={d.id}
                     d={d}
                     randomInt={getRandomInt(bgColours.length)}
                   />
                 )
+                  :
+                  <span className="text-red-400">No Movies matched the Filter</span>
               }
             </div>
           </div>
