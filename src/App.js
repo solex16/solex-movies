@@ -1,37 +1,14 @@
-// import logo from './logo.svg';
-// import './App.css';
+import { useState, useEffect } from 'react';
 import Movie from './Movie';
 import { genres } from './genres'
 import { bgColours } from './bgColours';
-
-import { useState, useEffect } from 'react';
-
-const API_KEY = `2f3d3a8ab38ec8199c7c0261d59c7f46`
-const API_PATH = `https://api.themoviedb.org/3/`
-const getQuery = API_PATH + `movie/now_playing?api_key=` + API_KEY
-
-const getRandomInt = (max) => {
-  return Math.floor(Math.random() * Math.floor(max))
-}
-
-function compare(a, b) {
-  if (a.popularity > b.popularity) {
-    return -1;
-  }
-  if (a.popularity < b.popularity) {
-    return 1;
-  }
-  return 0;
-}
-
-const isSubsetArr = (arr1, arr2) => {
-  return arr2.every(val => arr1.includes(val))
-}
+import { getRandomInt, compare, isSubsetArr } from './utils';
+import { getNowPlayingQuery } from './config';
 
 const App = () => {
 
   const [status, setStatus] = useState('idle');
-  const [query, setQuery] = useState(getQuery);
+  const [query, setQuery] = useState(getNowPlayingQuery);
   const [movies, setMovies] = useState([]);
   const [data, setData] = useState([]);
   const [rating, setRating] = useState(0);
@@ -46,7 +23,6 @@ const App = () => {
       let { results } = await response.json()
       setData(results)
       setMovies(results)
-      // console.log('fetchData', results)
       setStatus('fetched')
     }
 

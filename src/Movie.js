@@ -1,14 +1,12 @@
 import { genres } from './genres'
-import { months } from './months'
 import { bgColours } from './bgColours';
+import { getYear } from './utils';
+import { IMG_BASE_URL } from './config';
 
-const BASE_URL = `https://image.tmdb.org/t/p/w200/`
-
-const getYear = (d) => {
-  const dates = d.split('-')
-  return months[parseInt(dates[1])] + ' ' + dates[0]
-}
-
+/**
+ * filters the list of genres by ids
+ * and returns their names
+ */
 const getGenres = (ids) => {
   return genres
     .filter((g) => { return ids.includes(g.id) })
@@ -19,7 +17,6 @@ const getGenres = (ids) => {
 const Movie = ({ d, randomInt }) => {
 
   const lightness = 200;
-
   const getBackGround = ({ randomInt, lightness }) => {
     return `bg-${bgColours[randomInt]}-${lightness}`
   }
@@ -41,7 +38,7 @@ const Movie = ({ d, randomInt }) => {
         <div className="h-34 w-64 grid grid-cols-8 grid-rows-5 bg-gray-100">
           <div className="col-span-3 row-span-5 m-auto">
             <img
-              src={BASE_URL + d.poster_path}
+              src={IMG_BASE_URL + d.poster_path}
               alt=""
             />
           </div>
