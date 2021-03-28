@@ -13,6 +13,16 @@ const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max))
 }
 
+function compare(a, b) {
+  if (a.popularity > b.popularity) {
+    return -1;
+  }
+  if (a.popularity < b.popularity) {
+    return 1;
+  }
+  return 0;
+}
+
 const App = () => {
 
   const [status, setStatus] = useState('idle');
@@ -26,6 +36,7 @@ const App = () => {
       setStatus('fetching');
       const response = await fetch(query);
       const d = await response.json();
+      d.results.sort(compare)
 
       setData(d.results);
       console.log('data', d);
