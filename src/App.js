@@ -118,6 +118,7 @@ const App = () => {
             <div className="bg-gray-600 px-6 pb-1 text-white">Filter by Genre</div>
             <div className="px-2 pt-2">
               {genres && genres.map((g) => <div
+                key={g.id}
                 data-id={g.id}
                 className={getGenreClass(g.id)}
                 onClick={setFilter}
@@ -134,10 +135,10 @@ const App = () => {
 
             <div className="bg-gray-600 px-6 pb-1 text-white">Filter by Rating</div>
             <div className="px-1 my-4">
-              <label className="text-sm" for="fader">Minimum Rating:</label>
+              <label className="text-sm" htmlFor="fader">Minimum Rating:</label>
               <input type="range" min="0" max="10" value={rating} id="fader"
                 step="1" onChange={updateSlider} />
-              <output className="mx-1" for="fader">{rating}</output>
+              <output className="mx-1" htmlFor="fader">{rating}</output>
             </div>
 
           </div>
