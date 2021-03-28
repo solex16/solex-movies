@@ -1,12 +1,17 @@
 // import logo from './logo.svg';
 // import './App.css';
 import Movie from './Movie';
+import { bgColours } from './bgColours';
 
 import { useState, useEffect } from 'react';
 
 const API_KEY = `2f3d3a8ab38ec8199c7c0261d59c7f46`
 const API_PATH = `https://api.themoviedb.org/3/`
 const getQuery = API_PATH + `movie/now_playing?api_key=` + API_KEY
+
+const getRandomInt = (max) => {
+  return Math.floor(Math.random() * Math.floor(max))
+}
 
 const App = () => {
 
@@ -21,6 +26,7 @@ const App = () => {
       setStatus('fetching');
       const response = await fetch(query);
       const d = await response.json();
+
       setData(d.results);
       console.log('data', d);
       setStatus('fetched');
@@ -47,7 +53,11 @@ const App = () => {
             <div className="grid grid-cols-3 gap-4">
               {
                 data && data.map((d) =>
-                  <Movie key={d.id} d={d} />
+                  <Movie
+                    key={d.id}
+                    d={d}
+                    randomInt={getRandomInt(bgColours.length)}
+                  />
                 )
               }
             </div>

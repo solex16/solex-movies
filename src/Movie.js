@@ -1,5 +1,6 @@
 import { genres } from './genres'
-const headerClass = `flex min-w-full max-w-max justify-center border rounded-2xl rounded-b-none text-gray-600 pt-2 h-12`
+import { bgColours } from './bgColours';
+
 const BASE_URL = `https://image.tmdb.org/t/p/w200/`
 
 const getGenres = (ids) => {
@@ -9,7 +10,17 @@ const getGenres = (ids) => {
     .join(', ')
 }
 
-const Movie = ({ d }) => {
+const Movie = ({ d, randomInt }) => {
+
+  const lightness = 200;
+
+  const getBackGround = ({ randomInt, lightness }) => {
+    return `bg-${bgColours[randomInt]}-${lightness}`
+  }
+
+  const headerClass = `flex min-w-full max-w-max justify-center border rounded-2xl rounded-b-none text-gray-600 ${getBackGround(
+    { randomInt, lightness }
+  )} pt-2 min-h-full h-12`
 
   return (
     <div className="w-full justify-items-center">
@@ -17,11 +28,11 @@ const Movie = ({ d }) => {
         className="w-64 m-4 border rounded-2xl border-gray-300 shadow-lg"
       >
         <div className={headerClass}>
-          <span className="font-sans text-2xl">
+          <span className="font-sans text-xl">
             {d.title}
           </span>
         </div>
-        <div className="h-36 w-64 grid grid-cols-10 grid-rows-4 bg-gray-100">
+        <div className="h-28 w-64 grid grid-cols-10 grid-rows-4 bg-gray-100">
           <div className="border border-gray-100 col-span-3 row-span-2 m-auto">
             <img
               // className="h-12 w-12 rounded-full"
