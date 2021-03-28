@@ -56,7 +56,10 @@ const App = () => {
   }, [query])
 
   useEffect(() => {
-    if (!filterIds.length) return;
+
+    if (!filterIds.length) {
+      setMovies(data)
+    }
 
     const filterMovies = () => {
       let m = [...data]
@@ -74,7 +77,6 @@ const App = () => {
 
   const resetFilter = () => {
     setFilterIds([])
-    setMovies(data)
   }
 
   const getGenreClass = (id) => {
@@ -125,9 +127,6 @@ const App = () => {
                 Reset
               </button>
             </div>
-
-
-
           </div>
 
           <div className="px-4 w-full lg:w-5/6">
