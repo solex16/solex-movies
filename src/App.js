@@ -73,9 +73,8 @@ const App = () => {
   }, [filterIds, data])
 
   const getGenreClass = (id) => {
-    const activeGenreClass = "inline-flex cursor-pointer text-xs p-1 m-1 bg-blue-200 border border-blue-400 rounded-2xl"
-    const genreClass = "inline-flex cursor-pointer text-xs p-1 m-1 bg-white border border-blue-400 rounded-2xl"
-    return filterIds.includes(id) ? activeGenreClass : genreClass
+    const bg = filterIds.includes(id) ? 'bg-blue-200' : 'bg-white'
+    return "inline-flex cursor-pointer text-xs p-1 m-1 border border-blue-400 rounded-2xl " + bg;
   }
 
   const setFilter = (e) => {
