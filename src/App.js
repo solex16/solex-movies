@@ -134,7 +134,7 @@ const App = () => {
             <span className="ml-4 text-2xl">Movies Playing Now..</span>
             {
               status === 'fetched' &&
-              <div className="grid grid-cols-3 gap-4 mr-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mr-4">
                 {
                   movies.length ? movies.map((d) =>
                     <Movie
