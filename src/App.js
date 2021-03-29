@@ -131,29 +131,28 @@ const App = () => {
           </div>
         </div>
 
-        <div className="w-full lg:w-5/6">
-          <div className="min-h-screen border-0 border-r pt-2">
-            <span className="ml-4 text-2xl">Movies Playing Now..</span>
-            {
-              status === 'fetched' &&
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mr-4">
-                {
-                  movies.length ? movies.map((d) =>
-                    <Movie
-                      key={d.id}
-                      d={d}
-                      randomInt={getRandomInt(bgColours.length)}
-                    />
-                  )
-                    :
-                    <div className="m-10 w-64 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-                      <span className="block sm:inline">No Movies matched the Filter</span>
-                    </div>
-                }
-              </div>
-            }
-          </div>
+        <div className="w-full lg:w-5/6 border-0 border-r pt-2">
+          <span className="ml-4 text-2xl">Movies Playing Now..</span>
+=            {
+            status === 'fetched' &&
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mr-4">
+              {
+                movies.length ? movies.map((d) =>
+                  <Movie
+                    key={d.id}
+                    d={d}
+                    randomInt={getRandomInt(bgColours.length)}
+                  />
+                )
+                  :
+                  <div className="m-10 w-64 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                    <span className="block sm:inline">No Movies matched the Filter</span>
+                  </div>
+              }
+            </div>
+          }
         </div>
+
       </div>
     </div>
   );
