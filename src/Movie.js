@@ -1,6 +1,6 @@
 import { genres } from './genres'
 import { bgColours } from './bgColours';
-import { getYear } from './utils';
+import { getYear, truncate } from './utils';
 import { IMG_BASE_URL } from './config';
 
 /**
@@ -32,7 +32,7 @@ const Movie = ({ d, randomInt }) => {
       >
         <div className={headerClass}>
           <span className="font-sans text-xl">
-            {d.title}
+            {truncate({ text: d.title, max: 25 })}
           </span>
         </div>
         <div className="h-34 w-64 grid grid-cols-8 grid-rows-5 bg-gray-100">

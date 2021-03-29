@@ -22,3 +22,11 @@ export const getYear = (d) => {
   const dates = d.split('-')
   return months[parseInt(dates[1])] + ' ' + dates[0]
 }
+
+export const truncate = ({ text, max }) => {
+
+  if (text && text.length > max) {
+    return text.substring(0, max) + '...'
+  }
+  return text
+}
