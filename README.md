@@ -40,3 +40,5 @@ Get more results and paginate
 
 Improve layout, expecially breakpoints for grid columns
 
+Add catch and message if API unavailable
+
