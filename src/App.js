@@ -5,13 +5,15 @@ import { bgColours } from './bgColours';
 import { getRandomInt, compare, isSubsetArr } from './utils';
 import { getNowPlayingQuery } from './config';
 
+const defaultRating = 3;
+
 const App = () => {
 
   const [status, setStatus] = useState('idle');
   const [query, setQuery] = useState(getNowPlayingQuery);
   const [movies, setMovies] = useState([]);
   const [data, setData] = useState([]);
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(defaultRating);
   const [filterIds, setFilterIds] = useState([]);
 
   useEffect(() => {
@@ -62,7 +64,7 @@ const App = () => {
 
   const resetFilters = () => {
     setFilterIds([])
-    setRating(0)
+    setRating(defaultRating)
   }
 
   const getGenreClass = (id) => {
@@ -115,7 +117,7 @@ const App = () => {
             <div className="px-1 my-4">
               <label className="text-sm" htmlFor="fader">Minimum Rating:</label>
               <input type="range" min="0" max="10" value={rating} id="fader"
-                step="1" onChange={updateSlider} />
+                step="0.5" onChange={updateSlider} />
               <output className="mx-1 text-blue-700" htmlFor="fader">{rating}</output>
             </div>
 
