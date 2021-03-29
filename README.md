@@ -1,10 +1,11 @@
-# Getting Started with Create React App
+# TMDB Movie project for Zone Digital
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 and uses [TailwindCSS](https://tailwindcss.com/)
 
-## Run on localhost
-
+## The app has been deployed to:
+[My personal server](http://robertfranks.net/tmdb/)
+## Or: Run on localhost
 Download the repo, then in the project directory, you can run:
 
 ### `yarn start`
@@ -21,13 +22,11 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-
 ### Notes
-The functionality has been completed according to spec
+The functionality has been completed according to [Zone Digital Spec](https://zone.github.io/frontend/movie-listing)
 
 Styling may be a little too 'playful' (esp. with the 'random' header background colours)
 
