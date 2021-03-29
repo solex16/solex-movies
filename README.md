@@ -28,13 +28,16 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### Notes
 The functionality has been completed according to spec
-Styling may be a little too 'playful' (esp. with the 'rando' header background colours)
+
+Styling may be a little too 'playful' (esp. with the 'random' header background colours)
 
 ### Shortfalls
 No tests are set up
+
 No accessibility
 
 ### To Do
-get more results and paginate
-improve layout, expecially breakpoints for grid columns
+Get more results and paginate
+
+Improve layout, expecially breakpoints for grid columns
 
